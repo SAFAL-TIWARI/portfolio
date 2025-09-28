@@ -71,9 +71,21 @@ body {
     height: 70px;
 }
 
-.nav-logo h2 {
-    color: var(--primary-color);
-    font-weight: 600;
+.nav-logo-img {
+    height: 100px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.nav-logo-img:hover {
+    transform: scale(1.05);
+}
+
+/* Dark mode filter for logo image */
+[data-theme="dark"] .nav-logo-img {
+    filter: brightness(0) invert(1);    
 }
 
 .nav-menu {
@@ -844,6 +856,11 @@ section {
 /* Responsive Design */
 @media (max-width: 768px) {
     /* Navigation Mobile Changes */
+    .nav-logo-img {
+        height: 80px;
+        max-width: 130px;
+    }
+    
     .mobile-controls {
         display: flex;
     }
@@ -876,7 +893,7 @@ section {
 
     .nav-menu {
         position: fixed;
-        left: -100%;
+        right: -100%;
         top: 70px;
         flex-direction: column;
         background-color: var(--bg-card);
@@ -888,7 +905,7 @@ section {
     }
 
     .nav-menu.active {
-        left: 0;
+        right: 0;
     }
 
     .hamburger.active .bar:nth-child(2) {
@@ -1043,8 +1060,9 @@ section {
         height: 60px;
     }
     
-    .nav-logo h2 {
-        font-size: 1.3rem;
+    .nav-logo-img {
+        height: 80px;
+        max-width: 120px;
     }
 
     /* Further reduce hero section sizes */
